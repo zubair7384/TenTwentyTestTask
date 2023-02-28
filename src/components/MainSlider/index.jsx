@@ -3,13 +3,6 @@ import "./mainSlider.scss";
 
 const MainSlider = ({ images, thumbs }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderWrapperRef = useRef(null);
-
-  useEffect(() => {
-    sliderWrapperRef.current.style.backgroundPosition = `center -${
-      currentSlide * 100
-    }%`;
-  }, [currentSlide]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,22 +15,28 @@ const MainSlider = ({ images, thumbs }) => {
 
   return (
     <div className="slider">
-      <div className="slider-wrapper" ref={sliderWrapperRef}>
+      <div className="slider-wrapper">
         {images.map((image, index) => (
           <div
             className={`slide ${index === currentSlide ? "active-slide" : ""}`}
             key={index}
           >
             <div className="slider-content">
-              <p className="fadeInUp-1">
-                <span>Welcome</span>
-                <span>To</span>
-                <span>TenTwenty Farms</span>
+              <p
+                className={`${
+                  index === currentSlide ? "active-slide fadeInLeft-1" : ""
+                }`}
+              >
+                Welcome To TenTwenty Farms
               </p>
-              <h2>
-                <span className="fadeInUp-2">From our Farms</span>
+              <h2
+                className={`${
+                  index === currentSlide ? "active-slide fadeInUp-1" : ""
+                }`}
+              >
+                From our Farms
                 <br />
-                <span className="fadeInUp-3">to your hands</span>
+                to your hands
               </h2>
             </div>
             <img src={image} alt={`Slide ${index}`} />
