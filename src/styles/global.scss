@@ -1,0 +1,134 @@
+// @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Raleway:ital,wght@0,200;1,100;1,200;1,500;1,600&family=Roboto:wght@300;400;500;700&display=swap");
+
+// Variables
+$primary-color: #3498db;
+$secondary-color: #f2f2f2;
+$bg-color: #ffffff;
+$text-color: #333333;
+$font-family: "Open Sans", sans-serif;
+$font-size: 16px;
+
+// Global Styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-num {
+  font-family: "sans-serif";
+}
+.mr-auto {
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.float-r {
+  float: right;
+}
+.float-l {
+  float: left;
+}
+.float-c {
+  clear: both;
+}
+.relative {
+  position: relative;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-block {
+  display: block;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+// Responsive Breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+// Media Query Mixins
+@mixin breakpoint-sm {
+  @media (min-width: $sm) {
+    @content;
+  }
+}
+
+@mixin breakpoint-md {
+  @media (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin breakpoint-lg {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin breakpoint-xl {
+  @media (min-width: $xl) {
+    @content;
+  }
+}

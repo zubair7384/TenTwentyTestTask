@@ -1,0 +1,17 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore any files with .log extension
+*.log
+
+# Ignore any files with .DS_Store extension
+.DS_Store
+
+# Ignore any files with .env extension
+.env
+
+# Ignore any files with .idea directory
+.idea/
+
+# Ignore any files with .vscode directory
+.vscode/
