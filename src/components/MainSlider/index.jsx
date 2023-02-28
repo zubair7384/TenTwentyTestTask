@@ -15,7 +15,6 @@ const MainSlider = ({ images, thumbs }) => {
   useEffect(() => {
     const sliderWrapper = document.querySelector(".slider-wrapper");
     sliderWrapper.style.backgroundPosition = `center -${currentSlide * 100}%`;
-    console.log(currentSlide, "currentSlide");
   }, [currentSlide]);
 
   return (
