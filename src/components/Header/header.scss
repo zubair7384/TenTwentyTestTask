@@ -1,12 +1,32 @@
+@import "../../styles/global.scss";
+
 .navebar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  background: transparent;
   .navbar-wrapper {
+    position: absolute;
+    width: 98%;
+    height: 101px;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
+    background: #fff;
+    padding: 50px;
+    align-items: center;
+    margin: 20px;
+    @include breakpoint-md {
+      width: 100%;
+      padding: 30px;
+      height: 81px;
+      margin: 0;
+    }
     ul {
       display: flex;
       li {
         list-style-type: none;
-        margin: 30px 20px;
+        margin: 0 10px;
         a {
           font-family: "Work Sans";
           font-size: 14px;
@@ -14,6 +34,30 @@
           color: #000;
           cursor: pointer;
         }
+      }
+      @include breakpoint-md {
+        display: none;
+      }
+    }
+    .contact-button {
+      height: 36px;
+      padding: 2px 14px;
+      display: flex;
+      align-items: center;
+      .left-icon {
+        padding-left: 12px;
+      }
+    }
+    .hamburger-button {
+      display: none;
+      @include breakpoint-md {
+        display: block;
+        width: 48px;
+        height: 48px;
+        left: 342px;
+        top: 15px;
+        background: #f9f4ee;
+        border: 1px solid #f9f4ee;
       }
     }
   }

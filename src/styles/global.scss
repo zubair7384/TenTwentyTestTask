@@ -42,6 +42,7 @@ h5,
 h6,
 p {
   margin: 0;
+  font-family: "Work Sans";
 }
 
 a {
@@ -56,6 +57,10 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+button {
+  cursor: pointer;
 }
 
 .text-center {
@@ -115,25 +120,56 @@ $xl: 1200px;
 
 // Media Query Mixins
 @mixin breakpoint-sm {
-  @media (min-width: $sm) {
+  @media (max-width: $sm) {
     @content;
   }
 }
 
 @mixin breakpoint-md {
-  @media (min-width: $md) {
+  @media (max-width: $md) {
     @content;
   }
 }
 
 @mixin breakpoint-lg {
-  @media (min-width: $lg) {
+  @media (max-width: $lg) {
     @content;
   }
 }
 
 @mixin breakpoint-xl {
-  @media (min-width: $xl) {
+  @media (max-width: $xl) {
     @content;
+  }
+}
+
+// custom animations
+
+.fadeInUp-1 {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.fadeInUp-2 {
+  animation: fadeInUp 2s ease-in-out;
+}
+
+.fadeInUp-3 {
+  animation: fadeInUp 3s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }

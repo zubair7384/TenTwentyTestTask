@@ -1,7 +1,12 @@
-// - @Author: zubir iqbal zubair.iqbal2018@gmail.com
-// - @Date: 2023-02-28 03:57 PM
-// - @LastEditors: zubir zubair.iqbal2018@gmail.com
-// - Copyright (c) 2022 by zubir zubair.iqbal2018@gmail.com, All Rights Reserved.
+/* - @Author: zubir iqbal zubair.iqbal2018@gmail.com
+
+ - @Date: 2023-02-28 03:57 PM
+
+ - @LastEditors: zubir zubair.iqbal2018@gmail.com
+
+ - Copyright (c) 2022 by zubir zubair.iqbal2018@gmail.com, All Rights Reserved. */
+
+@import "../../styles/global.scss";
 
 .slider {
   position: relative;
@@ -13,7 +18,23 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-
+    .slider-content {
+      position: absolute;
+      position: absolute;
+      top: 23rem;
+      left: 12rem;
+      color: #eef4f9;
+      p {
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 400;
+      }
+      h2 {
+        font-size: 64px;
+        line-height: 100%;
+        font-weight: 400;
+      }
+    }
     .slide {
       position: absolute;
       top: 0;
@@ -37,15 +58,14 @@
 
   .thumbs-wrapper {
     position: absolute;
-    bottom: 0;
-    left: 50%;
+    bottom: 7%;
+    left: 17.5%;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 10%;
-    background-color: rgba(0, 0, 0, 0.5);
 
     .thumb {
       display: flex;
@@ -53,52 +73,43 @@
       align-items: center;
       height: 100%;
       margin: 0 10px;
-      opacity: 0.5;
+      opacity: 1;
       transition: opacity 0.3s ease-in-out;
       cursor: pointer;
-
+      // border: 1px solid #fff;
+      // padding: 12px;
+      @include breakpoint-md {
+        margin: 0 5px;
+      }
       img {
         height: 100%;
         width: auto;
-      }
-      &.active-thumb {
-        opacity: 0.5;
+        border: 1px solid #fff;
+        padding: 12px;
       }
     }
+    &.active-thumb {
+      opacity: 0.5;
+    }
   }
-
-  .slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  .thumbNumbers {
+    width: 150px;
+    height: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 10%;
-
-    button {
-      height: 50px;
-      width: 50px;
-      border: none;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.7);
-      }
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 12px;
+      left: 29px;
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      background-color: #fff;
     }
-  }
-
-  @media (max-width: 768px) {
-    .thumbs-wrapper {
-      .thumb {
-        margin: 0 5px;
-      }
+    span {
+      color: #fff;
     }
   }
 }

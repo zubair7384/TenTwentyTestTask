@@ -1,5 +1,6 @@
 import React from "react";
-import RightIcon from "../../assets/icons/right-icon.png";
+import RightIcon from "../../assets/icons/right-icon.svg";
+import Hamburger from "../../assets/icons/hamburger.svg";
 import "./header.scss";
 
 const navList = [
@@ -38,8 +39,12 @@ const Header = () => {
             );
           })}
         </ul>
-        <button>
-          Contact us <img src={RightIcon} alt="right-icon" />
+        <button className="contact-button">
+          Contact us
+          <img className="left-icon" src={RightIcon} alt="right-icon" />
+        </button>
+        <button className="hamburger-button">
+          <img className="hamburger" src={Hamburger} alt="hamburger" />
         </button>
       </div>
     </div>
