@@ -36,11 +36,13 @@ const MainSlider = ({ images, thumbs }) => {
   const getTransform = () => {
     const slideOffset = getOffset();
     const dx = mousePosition.x - slideOffset.left;
-    const x = (dx / slideRef?.current?.offsetWidth - 0.3) * 4;
+    const x = (dx / slideRef?.current?.offsetWidth - 0.3) * 2;
+    console.log(x, "xxx");
     return ` perspective(1000px)  rotateY(${x}deg)`;
   };
 
   const mouseMoveStyle = {
+    // transition: "transform 0.3s ease",
     transform: getTransform(),
   };
 
@@ -117,11 +119,7 @@ const MainSlider = ({ images, thumbs }) => {
               setCurrentSlide(index === thumbs.length - 1 ? 0 : index)
             }
           >
-            <img
-              // className={`${index !== currentSlide + 1 ? "d-none" : ""}`}
-              src={thumb}
-              alt={`Thumb ${index}`}
-            />
+            <img src={thumb} alt={`Thumb ${index}`} />
           </div>
         ))}
         <div className="thumbNumbers">
