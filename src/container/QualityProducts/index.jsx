@@ -26,10 +26,10 @@ const QualityProducts = () => {
   const items = ["one", "two", "three", "four", "five"];
 
   const setting = {
-    dragSpeed: 1.25,
+    dragSpeed: 0.4,
     itemWidth: 280,
     itemHeight: 657,
-    itemSideOffsets: 50,
+    itemSideOffsets: 150,
   };
 
   const itemStyle = {
@@ -42,13 +42,15 @@ const QualityProducts = () => {
 
   return (
     <div className="quality-products">
-      <h2>Quality Products</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
-      </p>
+      <div className="quality-products-content">
+        <h2>Quality Products</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
       {/* <ProductSlider slides={slides} imageSize="150px" />
        */}
       <Carousel _data={items} {...setting} activeSlideIndex={activeSlideIndex}>
