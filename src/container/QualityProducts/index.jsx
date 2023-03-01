@@ -22,11 +22,33 @@ const QualityProducts = () => {
     margin: `0px ${setting.itemSideOffsets}px`,
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const title = document.querySelector(".quality-products-content h2");
+      const description = document.querySelector(".quality-products-content p");
+      const titlePosition = title.getBoundingClientRect().top;
+      const descriptionPosition = description.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.2;
+
+      if (titlePosition || descriptionPosition < screenPosition) {
+        setTitleAnimated(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [titleAnimated]);
+
   return (
     <div className="quality-products">
       <div className="quality-products-content">
-        <h2>Quality Products</h2>
-        <p>
+        <h2 className={`${titleAnimated ? "fadeInUp-2" : ""}`}>
+          Quality Products
+        </h2>
+        <p className={`${titleAnimated ? "fadeInLeft-1" : ""}`}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
