@@ -29,7 +29,7 @@ const MainBanner = () => {
   return (
     <div className="main-banner">
       <MainSlider
-        timeInterval={100000}
+        timeInterval={10000}
         images={mainSliderImages}
         thumbs={mainSliderThumbs}
       />

@@ -14,7 +14,7 @@ const QualityProducts = () => {
     dragSpeed: 0.4,
     itemWidth: 280,
     itemHeight: 657,
-    itemSideOffsets: 90,
+    itemSideOffsets: 140,
   };
   const itemStyle = {
     width: `${setting.itemWidth}px`,
