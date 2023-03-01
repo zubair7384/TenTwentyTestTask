@@ -37,7 +37,6 @@ const MainSlider = ({ images, thumbs }) => {
     const slideOffset = getOffset();
     const dx = mousePosition.x - slideOffset.left;
     const x = (dx / slideRef?.current?.offsetWidth - 0.3) * 2;
-    console.log(x, "xxx");
     return ` perspective(1000px)  rotateY(${x}deg)`;
   };
 

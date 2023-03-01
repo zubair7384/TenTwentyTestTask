@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./productSlider.scss";
 
-const Carousel = (props) => {
+const ProductSlider = (props) => {
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(null);
   const [transLeftOffset, setTransLeftOffset] = useState(null);
@@ -47,7 +47,7 @@ const Carousel = (props) => {
   };
 
   const handleSnap = () => {
-    const { _data, itemWidth, itemSideOffsets } = props;
+    const { data, itemWidth, itemSideOffsets } = props;
     const carousel = cRef.current;
 
     setIsDown(false);
@@ -57,7 +57,7 @@ const Carousel = (props) => {
       carousel.firstChild.style.transform
     );
     const end =
-      _data.length * (itemWidth + 2 * itemSideOffsets) -
+      data.length * (itemWidth + 2 * itemSideOffsets) -
       30 -
       carousel.offsetWidth;
 
@@ -75,10 +75,10 @@ const Carousel = (props) => {
     return parseInt(el.replace("translateX(", "").replace("px)", ""), 10);
   };
 
-  const { _data, itemWidth, itemHeight, itemSideOffsets } = props;
+  const { data, itemWidth, itemHeight, itemSideOffsets } = props;
 
   const cWrapperStyle = {
-    width: `${_data.length * (itemWidth + 2 * itemSideOffsets)}px`,
+    width: `${data.length * (itemWidth + 2 * itemSideOffsets)}px`,
     height: `${itemHeight}px`,
   };
 
@@ -110,4 +110,4 @@ const Carousel = (props) => {
   );
 };
 
-export default Carousel;
+export default ProductSlider;
