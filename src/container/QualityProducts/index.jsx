@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductSlider from "../../components/ProductSlider";
-import Wheel from "../../components/Wheel";
+import Wheel from "../../components/ProductSlider";
 import ProductOne from "../../assets/images/product-1.jpg";
 import ProductThree from "../../assets/images/product-3.jpg";
 import "./qualityProducts.scss";
@@ -40,22 +40,7 @@ const QualityProducts = () => {
           aliquip ex ea commodo consequat.
         </p>
       </div>
-      <ProductSlider
-        data={slides}
-        {...setting}
-        activeSlideIndex={activeSlideIndex}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`item ${index === activeSlideIndex ? "active" : ""}`}
-            style={{ ...itemStyle }}
-          >
-            <img src={slide} alt="slider-image" />
-          </div>
-        ))}
-      </ProductSlider>
-      {/* <Wheel /> */}
+      <ProductSlider />
     </div>
   );
 };

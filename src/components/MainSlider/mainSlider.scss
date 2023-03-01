@@ -118,6 +118,8 @@
     }
     .slider-icon-4th {
       transform: rotate(-270deg);
+      left: 46px;
+      top: 36px;
       @include breakpoint-xl {
         left: 41px;
         top: 30px;

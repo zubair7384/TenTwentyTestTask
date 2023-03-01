@@ -1,19 +1,8 @@
 import React from "react";
-
-const styles = {
-  card: {
-    margin: "0",
-    padding: "0",
-    width: "50px",
-    height: "50px",
-    borderRadius: "50%",
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "blue",
-  },
-};
+import ProductOne from "../../assets/images/product-1.jpg";
+import ProductTwo from "../../assets/images/product-2.jpg";
+import ProductThree from "../../assets/images/product-3.jpg";
+import "./productSlider.scss";
 
 const Card = (props) => {
   const get_coords = (radian_interval, radius) => {
@@ -27,12 +16,14 @@ const Card = (props) => {
 
   return (
     <div
+      className="card"
       style={{
-        ...styles.card,
         left: `${props.center.x + coord.x}px`,
         top: `${props.center.y - coord.y}px`,
       }}
-    ></div>
+    >
+      <img src={props.image} alt="product" />
+    </div>
   );
 };
 
