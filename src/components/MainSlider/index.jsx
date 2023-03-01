@@ -118,7 +118,7 @@ const MainSlider = ({ images, thumbs, timeInterval }) => {
               setCurrentSlide(index === thumbs.length - 1 ? 0 : index)
             }
           >
-            <img src={thumb} alt={`Thumb ${index}`} />
+            <img src={thumb} alt={`thumb-${index}`} />
           </div>
         ))}
         <div className="thumbNumbers">
