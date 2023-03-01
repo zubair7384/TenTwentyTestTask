@@ -22,35 +22,35 @@ const Wheel = () => {
     const temp_cards = [
       {
         image: ProductOne,
-        radian_interval: Math.PI / 6,
+        radian_interval: Math.PI / 4,
       },
       {
         image: ProductTwo,
-        radian_interval: (Math.PI / 6) * 2,
+        radian_interval: (Math.PI / 4) * 2,
       },
       {
         image: ProductThree,
-        radian_interval: (Math.PI / 6) * 3,
+        radian_interval: (Math.PI / 4) * 3,
       },
       {
         image: ProductOne,
-        radian_interval: (Math.PI / 6) * 4,
+        radian_interval: (Math.PI / 4) * 4,
       },
       {
         image: ProductTwo,
-        radian_interval: (Math.PI / 6) * 5,
+        radian_interval: (Math.PI / 4) * 5,
       },
       {
         image: ProductThree,
-        radian_interval: (Math.PI / 6) * 6,
+        radian_interval: (Math.PI / 4) * 6,
       },
       {
         image: ProductTwo,
-        radian_interval: (Math.PI / 6) * 7,
+        radian_interval: (Math.PI / 4) * 7,
       },
       {
         image: ProductThree,
-        radian_interval: (Math.PI / 6) * 8,
+        radian_interval: (Math.PI / 4) * 8,
       },
       // add more cards here
     ].map((card, i) => (
@@ -69,9 +69,9 @@ const Wheel = () => {
   const handle_scroll = (event) => {
     clearTimeout(animId.current);
     wheelRef.current.style.transform = `translate(0, -50%) rotate(${
-      tempTheta + event.deltaY * 0.5
+      tempTheta + event.deltaY * 0.006
     }deg)`;
-    setTempTheta(tempTheta + event.deltaY * 0.5);
+    setTempTheta(tempTheta + event.deltaY * 0.006);
 
     animId.current = setTimeout(() => {
       setTheta(tempTheta);
