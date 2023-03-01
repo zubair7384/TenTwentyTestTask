@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import MainSlideIcon from "../../assets/icons/main-slide-icon.svg";
 import "./mainSlider.scss";
 
 const MainSlider = ({ images, thumbs }) => {
+  const [titleAnimated, setTitleAnimated] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const slideRef = useRef(null);
@@ -17,7 +19,6 @@ const MainSlider = ({ images, thumbs }) => {
 
   const handleMouseMove = (e) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
-    console.log(mousePosition, "mousePosition");
   };
 
   const getOffset = () => {
@@ -63,12 +64,15 @@ const MainSlider = ({ images, thumbs }) => {
                 className={`${
                   index === currentSlide ? "active-slide fadeInLeft-1" : ""
                 }`}
+                onAnimationEnd={() => setTitleAnimated(true)}
               >
                 Welcome To TenTwenty Farms
               </p>
               <h2
                 className={`${
-                  index === currentSlide ? "active-slide fadeInUp-1" : ""
+                  index === currentSlide && titleAnimated
+                    ? "active-slide fadeInUp-1 opacity-1"
+                    : "opacity-0"
                 }`}
               >
                 From our Farms
@@ -87,23 +91,41 @@ const MainSlider = ({ images, thumbs }) => {
       </div>
 
       <div className="thumbs-wrapper">
+        <img
+          // className="slider-icon"
+          className={
+            currentSlide + 1 === 1
+              ? "slider-icon-1st"
+              : currentSlide + 1 === 2
+              ? "slider-icon-2nd"
+              : currentSlide + 1 === 3
+              ? "slider-icon-3rd"
+              : currentSlide + 1 === 4
+              ? "slider-icon-4th"
+              : ""
+          }
+          src={MainSlideIcon}
+          alt="main-slide-icon"
+        />
         {thumbs.map((thumb, index) => (
           <div
-            className={`thumb ${index === currentSlide ? "active-thumb" : ""} `}
+            className={`thumb ${
+              index === currentSlide + 1 ? "active-thumb" : "d-none"
+            } `}
             key={index}
             onClick={() =>
               setCurrentSlide(index === thumbs.length - 1 ? 0 : index)
             }
           >
             <img
-              className={`${index !== currentSlide + 1 ? "d-none" : ""}`}
+              // className={`${index !== currentSlide + 1 ? "d-none" : ""}`}
               src={thumb}
               alt={`Thumb ${index}`}
             />
           </div>
         ))}
         <div className="thumbNumbers">
-          <span>01</span>
+          <span>0{currentSlide + 1}</span>
           <span>04</span>
         </div>
       </div>
