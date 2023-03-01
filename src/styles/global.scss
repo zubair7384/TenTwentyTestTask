@@ -120,10 +120,13 @@ button {
 }
 
 // Responsive Breakpoints
+$xsm: 368px;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
-$xl: 1200px;
+$xl: 1360px;
+$xxl: 1600px;
+$xxl: 2000px;
 
 // Media Query Mixins
 @mixin breakpoint-sm {

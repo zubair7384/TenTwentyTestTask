@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .quality-products {
   display: flex;
   flex-direction: column;
@@ -13,6 +15,9 @@
       color: #000;
       font-weight: 400;
       padding-bottom: 30px;
+      @include breakpoint-md {
+        font-size: 40px;
+      }
     }
     .animate-title {
       //   opacity: 0;
@@ -35,6 +40,11 @@
       color: #7a7777;
       font-weight: 400;
       line-height: 120%;
+      @include breakpoint-md {
+        width: 78%;
+        margin: 0 auto;
+        font-size: 28px;
+      }
     }
     .animate-paragraph {
       opacity: 0;

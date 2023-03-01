@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import MainSlideIcon from "../../assets/icons/main-slide-icon.svg";
 import "./mainSlider.scss";
 
-const MainSlider = ({ images, thumbs }) => {
+const MainSlider = ({ images, thumbs, timeInterval }) => {
   const [titleAnimated, setTitleAnimated] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -13,7 +13,7 @@ const MainSlider = ({ images, thumbs }) => {
       setCurrentSlide(
         currentSlide === images.length - 1 ? 0 : currentSlide + 1
       );
-    }, 100000); // Change time interval as needed
+    }, timeInterval); // Change time interval as needed
     return () => clearInterval(interval);
   }, [currentSlide, images.length]);
 
