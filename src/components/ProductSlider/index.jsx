@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Card from "./productSliderCard.jsx";
 import ProductOne from "../../assets/images/product-1.jpg";
-import ProductTwo from "../../assets/images/product-2.jpg";
+import ProductTwo from "../../assets/images/product-1.jpg";
 import ProductThree from "../../assets/images/product-3.jpg";
 
 import "./productSlider.scss";
@@ -66,21 +66,19 @@ const Wheel = () => {
     setCards(temp_cards);
   }, [radius]);
 
-  const handle_scroll = (event) => {
+  const handleScroll = (event) => {
     clearTimeout(animId.current);
     wheelRef.current.style.transform = `translate(0, -50%) rotate(${
-      tempTheta + event.deltaY * 0.006
+      tempTheta - event.deltaY * 0.006
     }deg)`;
-    setTempTheta(tempTheta + event.deltaY * 0.006);
-
+    setTempTheta(tempTheta - event.deltaY * 0.006);
     animId.current = setTimeout(() => {
       setTheta(tempTheta);
     }, 150);
   };
-
   return (
     <div className="weel-wrapper">
-      <div onWheel={handle_scroll} ref={wheelRef} style={styles.wheel}>
+      <div onWheel={handleScroll} ref={wheelRef} style={styles.wheel}>
         {cards}
       </div>
     </div>
@@ -94,7 +92,7 @@ const styles = {
     width: "500px",
     backgroundColor: "red",
     borderRadius: "50%",
-    margin: "36rem 0 0 0",
+    margin: "50rem 0 0 0",
   },
 };
 
