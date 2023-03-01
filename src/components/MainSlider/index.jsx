@@ -3,6 +3,8 @@ import "./mainSlider.scss";
 
 const MainSlider = ({ images, thumbs }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const slideRef = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -13,15 +15,50 @@ const MainSlider = ({ images, thumbs }) => {
     return () => clearInterval(interval);
   }, [currentSlide, images.length]);
 
+  const handleMouseMove = (e) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+    console.log(mousePosition, "mousePosition");
+  };
+
+  const getOffset = () => {
+    if (slideRef.current) {
+      const rect = slideRef.current.getBoundingClientRect();
+      return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY,
+      };
+    } else {
+      return { left: 0, top: 0 };
+    }
+  };
+
+  const getTransform = () => {
+    const slideOffset = getOffset();
+    const dx = mousePosition.x - slideOffset.left;
+    const x = (dx / slideRef?.current?.offsetWidth - 0.3) * 4;
+    return ` perspective(1000px)  rotateY(${x}deg)`;
+  };
+
+  const mouseMoveStyle = {
+    transform: getTransform(),
+  };
+
   return (
-    <div className="slider">
-      <div className="slider-wrapper">
+    <div className="main-slider">
+      <div
+        className="main-slider-wrapper"
+        ref={slideRef}
+        onMouseMove={handleMouseMove}
+      >
         {images.map((image, index) => (
           <div
-            className={`slide ${index === currentSlide ? "active-slide" : ""}`}
+            className={`main-slide ${
+              index === currentSlide ? "active-slide" : ""
+            }`}
             key={index}
+            style={mouseMoveStyle}
           >
-            <div className="slider-content">
+            <div className="main-slider-content">
               <p
                 className={`${
                   index === currentSlide ? "active-slide fadeInLeft-1" : ""
@@ -39,8 +76,12 @@ const MainSlider = ({ images, thumbs }) => {
                 to your hands
               </h2>
             </div>
-            <img src={image} alt={`Slide ${index}`} />
-            <div className="slide-caption">{`Slide ${index + 1}`}</div>
+            <img
+              style={{ transform: "scale(1.2)" }}
+              src={image}
+              alt={`Slide ${index}`}
+            />
+            <div className="main-slide-caption">{`Slide ${index + 1}`}</div>
           </div>
         ))}
       </div>
